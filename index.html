@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>কুরবানির মাংস ভাগ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            padding: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .center{
+            justify-content: center;
+        }
+    </style>
+  </head>
+  <body>
+      <div class="container">
+        <div class="columns">
+          <div class="card" style="margin: 15px; padding: 15px;">
+              <div class="card-content">
+                  <div class="content">
+                      <h3>কুরবানির মাংস ভাগ</h3>
+                      <div class="field">
+                          <label class="label">কুরবানিতে অংশীদারির সংখ্যা</label>
+                          <div class="control">
+                            <div class="select">
+                              <select id="partner">
+                                <option value="1">১</option>
+                                <option value="2">২</option>
+                                <option value="3">৩</option>
+                                <option value="4">৪</option>
+                                <option value="5">৫</option>
+                                <option value="6">৬</option>
+                                <option value="7">৭</option>
+                              </select>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="field">
+                          <label class="label">মাংসের পরিমান (কেজি)</label>
+                          <div class="control">
+                            <input class="input" type="text" placeholder="উদাঃ ২০" id="product">
+                          </div>
+                      </div>
+                      <div class="buttons center">
+                        <button class="button is-primary" id="calculate">হিসাব করুন</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="notification is-warning">
+                <b><p id="info"></p>
+              </div>
+              <div class="notification is-danger">
+                <p id="society"></p>
+              </div>
+              <div class="notification is-success">
+                  <p id="woner"></p>
+               </div>
+                <div class="content has-text-centered">
+                  <p>
+                    কুরবানির মাংস ভাগের ক্যাকুলেটর @ <a href="https://riadhassan.com/"> রিয়াদ </a> এর তৈরি
+                  </p>
+                </div>
+          </div>
+      </div>
+    </div>
+  </body>
+  <script>
+      document.getElementById("calculate").addEventListener("click", function() {
+            var socity, woner;
+            var product_weight = parseFloat(document.getElementById('product').value);
+            var partner_count = parseFloat(document.getElementById('partner').value);
+            socity = (product_weight/3).toFixed(3);
+            woner = ((product_weight - socity)/partner_count).toFixed(3);
+            console.log(product_weight);
+            console.log(partner_count);
+            console.log(socity);
+            console.log(woner);
+            
+            society_part_in_kg = socity.toString().split(".")[0];
+            society_part_in_gm = socity.toString().split(".")[1];
+
+            woner_part_in_kg = woner.toString().split(".")[0];
+            woner_part_in_gm = woner.toString().split(".")[1];
+
+            document.getElementById("info").innerHTML = product_weight + " কেজি মাংস " + partner_count + " জন অংশীদারি ও সমাজের মধ্যে ভাগ করা হচ্ছে।";
+            document.getElementById("society").innerHTML = "সমাজের অংশঃ " + society_part_in_kg + " কেজি   " + society_part_in_gm + " গ্রাম ";
+            document.getElementById("woner").innerHTML = "প্রতি একক অংশীদারি অংশঃ " + woner_part_in_kg + " কেজি   " + woner_part_in_gm + " গ্রাম ";
+        });
+  </script>
+</html>
