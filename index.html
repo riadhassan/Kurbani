@@ -6,27 +6,17 @@
     <title>কুরবানির মাংস ভাগ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <style>
-        .container{
-            display: flex;
-            justify-content: center;
-            margin: auto;
-            padding: auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
         .center{
             justify-content: center;
+            text-align: center;
         }
     </style>
-    <link rel="icon" href="https://simg.nicepng.com/png/small/25-255746_png-file-svg-cow-head-icon-png.png">
+     <link rel="icon" href="https://simg.nicepng.com/png/small/25-255746_png-file-svg-cow-head-icon-png.png">
   </head>
   <body>
-      <div class="container">
-        <div class="columns">
-          <div class="card" style="margin: 15px; padding: 15px;">
+    <div class="column">
+      <div class="center">
+          <div class="card">
               <div class="card-content">
                   <div class="content">
                       <h3>কুরবানির মাংস ভাগ</h3>
@@ -65,14 +55,14 @@
               </div>
               <div class="notification is-success">
                   <p id="woner"></p>
-               </div>
+                </div>
                 <div class="content has-text-centered">
                   <p>
-                    কুরবানির মাংস ভাগের ক্যাকুলেটর @ <a href="https://riadhassan.com/"> রিয়াদ </a> এর তৈরি
+                    কুরবানির মাংস ভাগের ক্যাকুলেটর @ <a href="https://riadhassan.com/"> রিয়াদ হাসান </a> এর তৈরি
                   </p>
                 </div>
-          </div>
-      </div>
+            </div>
+        </div>
     </div>
   </body>
   <script>
@@ -82,10 +72,6 @@
             var partner_count = parseFloat(document.getElementById('partner').value);
             socity = (product_weight/3).toFixed(3);
             woner = ((product_weight - socity)/partner_count).toFixed(3);
-            console.log(product_weight);
-            console.log(partner_count);
-            console.log(socity);
-            console.log(woner);
             
             society_part_in_kg = socity.toString().split(".")[0];
             society_part_in_gm = socity.toString().split(".")[1];
