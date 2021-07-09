@@ -54,7 +54,7 @@
                 <p id="society"></p>
               </div>
               <div class="notification is-success">
-                  <p id="woner"></p>
+                  <p id="woner"> </p>
                 </div>
                 <div class="content has-text-centered">
                   <p>
@@ -67,11 +67,12 @@
   </body>
   <script>
       document.getElementById("calculate").addEventListener("click", function() {
-            var socity, woner;
+            var socity, woner, relative;
             var product_weight = parseFloat(document.getElementById('product').value);
             var partner_count = parseFloat(document.getElementById('partner').value);
             socity = (product_weight/3).toFixed(3);
             woner = ((product_weight - socity)/partner_count).toFixed(3);
+            relative = (woner/2).toFixed(3);
             
             society_part_in_kg = socity.toString().split(".")[0];
             society_part_in_gm = socity.toString().split(".")[1];
@@ -79,9 +80,12 @@
             woner_part_in_kg = woner.toString().split(".")[0];
             woner_part_in_gm = woner.toString().split(".")[1];
 
-            document.getElementById("info").innerHTML = product_weight + " কেজি মাংস " + partner_count + " জন অংশীদারি ও সমাজের মধ্যে ভাগ করা হচ্ছে।";
+            relative_part_in_kg = relative.toString().split(".")[0];
+            relative_part_in_gm = relative.toString().split(".")[1];
+
+            document.getElementById("info").innerHTML = product_weight + " কেজি মাংস " + partner_count + " জন কুরবানিতে অংশীদার ও সমাজের মধ্যে ভাগ করা হচ্ছে।" + "<br> <span style='font-size: 8px; color:black;'>*সমাজ বলতে গরীব এর অংশ বুঝানো হয়েছে। </span>";
             document.getElementById("society").innerHTML = "সমাজের অংশঃ " + society_part_in_kg + " কেজি   " + society_part_in_gm + " গ্রাম ";
-            document.getElementById("woner").innerHTML = "প্রতি একক অংশীদারির অংশঃ " + woner_part_in_kg + " কেজি   " + woner_part_in_gm + " গ্রাম ";
+            document.getElementById("woner").innerHTML = "প্রতি একক অংশীদারির অংশঃ " + woner_part_in_kg + " কেজি   " + woner_part_in_gm + " গ্রাম " + "<br> <span style='font-size: 10px; color:black;'>*এই অংশের অর্ধেক অর্থাৎ " + relative_part_in_kg + " কেজি "+ relative_part_in_gm +" গ্রাম আত্মীয় স্বজন কে দিতে হবে।</span>";
         });
   </script>
-</html>
+</html> 
